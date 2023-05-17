@@ -51,5 +51,18 @@ module.exports = app => {
         .catch(err => res.status(500).send(err))
     }
 
+    const remove = async (req, res) => {
+        try {
+            const articles = await app.db('articles')
+            .where({userId: req.params.id}) 
+            notExistsOrError(articles, 'Usuário possui artigos!')
+
+            const rowsUpdated = await app.db('users')
+            .update({deletedAt: new Date()})
+            .where({id: req.params.id})
+            existsOrError(rowsUpdated, 'Usuário não foi encontrado!')
+        }
+    }
+
     return {save, get, getById}
 }
