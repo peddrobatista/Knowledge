@@ -39,7 +39,9 @@ export default {
 </script>
 
 <style>
-    .stat {
-        
+    .stats {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
     }
 </style>
