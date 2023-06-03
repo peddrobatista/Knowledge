@@ -43,7 +43,7 @@ export default {
                 this.articles = this.articles.concat(res.data)
                 this.page++
 
-                if(res.data.length === 0) this.loadMore = false
+                if(res.data.length === 0) this.loadMore = false 
             })
         }
     }, 
