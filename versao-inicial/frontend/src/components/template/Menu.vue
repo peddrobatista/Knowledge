@@ -42,6 +42,10 @@ export default {
                 name: 'ArticlesByCategory',
                 params: {id: node.id}
             })
+            
+            if(this.$mq === 'xs' || this.$mq === 'sm') {
+                this.$store.commit('toggleMenu', false)
+            } 
         }
     },
     mounted() {
